@@ -22,3 +22,14 @@ sudo apt install neofetch
 {"key": "capslock", "command": "extension.vim_escape",
         "when": "editorTextFocus && vim.active && !inDebugRepl" }
 ```
+## tlp
+
+## Htop
+
+## lm-sensors
+
+## Monokai terminal
+sudo apt-get install dconf-cli
+wget -O xt  https://git.io/v5mPp && chmod +x xt && ./xt && rm xt
+
+## Vim e git
