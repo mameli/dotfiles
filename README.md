@@ -1,35 +1,34 @@
 # dotfiles
-vim, zsh config files
+vim, fish config files
+
+## Vim Plugins
+
+:PlugInstall 
+
+cd ~/.vim/plugged/youcompleteme/ 
+sudo apt install build-essential cmake python3-dev
+python install.py
 
 ## Theme
-sudo apt-get install arc-theme
-
 sudo add-apt-repository ppa:papirus/papirus
 sudo apt-get update
 sudo apt-get install papirus-icon-theme
 
 ## Fish shell
 sudo apt-get install fish
-
-## Compositor
-sudo apt-get install compton
+chsh -s /usr/local/bin/fish
+[oh my fish](https://github.com/oh-my-fish/oh-my-fish)
 
 ## Neofetch
 sudo apt install neofetch
 
-## Visual Studio Code
-```
-{"key": "capslock", "command": "extension.vim_escape",
-        "when": "editorTextFocus && vim.active && !inDebugRepl" }
-```
 ## tlp
+sudo add-apt-repository ppa:linrunner/tlp
+sudo apt-get update
 
 ## Htop
 
 ## lm-sensors
 
-## Monokai terminal
-sudo apt-get install dconf-cli
-wget -O xt  https://git.io/v5mPp && chmod +x xt && ./xt && rm xt
 
 ## Vim e git

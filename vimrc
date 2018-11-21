@@ -1,13 +1,10 @@
 syntax on
-colorscheme monokai
 :set number
 set term=screen-256color
 filetype plugin on
 call plug#begin('~/.vim/plugged')
 
 Plug 'crusoexia/vim-monokai'
-
-Plug 'JuliaEditorSupport/julia-vim'
 
 Plug 'airblade/vim-gitgutter'
 
@@ -18,8 +15,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'valloric/youcompleteme'
 
 Plug 'tpope/vim-surround'
-
-Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'scrooloose/syntastic'
 
