@@ -50,3 +50,8 @@ sudo apt-get install vim
 
 sudo apt-get install git
 ```
+
+## Matlab
+
+bash
+source activate jmatlab
