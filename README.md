@@ -53,5 +53,4 @@ sudo apt-get install git
 
 ## Matlab
 
-bash
 source activate jmatlab
