@@ -38,7 +38,7 @@ sudo apt-get install tlp
 ```
 ## Htop
 ```
-sudo apt-get install git
+sudo apt-get install htop
 ```
 ## lm-sensors
 ```
@@ -53,4 +53,8 @@ sudo apt-get install git
 
 ## Matlab
 
-source activate jmatlab
+conda activate jmatlab
+
+## Power saver audio
+sudo vim /etc/default/tlp
+SOUND_POWER_SAVE_ON_BAT=0
