@@ -115,3 +115,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+LS_COLORS=$LS_COLORS:'ow=01;36;40' ; export LS_COLORS
+cd $HOME
