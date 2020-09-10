@@ -7,12 +7,12 @@ export ZSH="/home/mame/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="xxf"
-
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -64,15 +64,22 @@ ZSH_THEME="xxf"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
-export PATH=/home/mame/anaconda3/bin:$PATH
+
 # User configuration
+fpath+=$HOME/.zsh/pure
+
+autoload -U promptinit; promptinit 
+prompt pure 
+
+zstyle ':completion:*' list-colors 'ow=1;34:tw=1;34:'
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -98,8 +105,6 @@ export PATH=/home/mame/anaconda3/bin:$PATH
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias remotenotebook="ssh -N -f -L localhost:8888:localhost:8890 fmameli@solaris.micc.unifi.it"
-alias kill8888="fuser -k 8888/tcp"
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/mame/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -113,7 +118,7 @@ else
     fi
 fi
 unset __conda_setup
+
+# cd $HOME
 # <<< conda initialize <<<
 
-LS_COLORS=$LS_COLORS:'ow=01;36;40' ; export LS_COLORS
-cd $HOME
