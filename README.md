@@ -73,3 +73,11 @@ conda activate jmatlab
 ## Power saver audio
 sudo vim /etc/default/tlp
 SOUND_POWER_SAVE_ON_BAT=0
+
+## Font
+sudo apt-get install fonts-cascadia-code
+
+## Scrool fix
+sudo apt install imwheel
+bash <(curl -s http://www.nicknorton.net/mousewheel.sh)
+imwheel -b "4 5"
