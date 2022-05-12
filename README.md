@@ -81,3 +81,14 @@ sudo apt-get install fonts-cascadia-code
 sudo apt install imwheel
 bash <(curl -s http://www.nicknorton.net/mousewheel.sh)
 imwheel -b "4 5"
+
+## wsl fix cloudera
+touch .wslconfig
+
+[wsl2]
+kernelCommandLine = vsyscall=emulate
+
+wsl --shutdown
+
+docker run --hostname=quickstart.cloudera --privileged=true -t -i -v /Users/mameli/cloudera-files:/cloudera
+-files --publish-all=true -p 8888:8888 -p 80:80 cloudera/quickstart /usr/bin/docker-quickstart
