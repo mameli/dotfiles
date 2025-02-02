@@ -1,0 +1,3 @@
+font-family = Cascadia Code Regular Regular
+font-size = 20
+theme = OneHalfDark
