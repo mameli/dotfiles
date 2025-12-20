@@ -1,111 +1,112 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# =============================================================================
+# ZSH CONFIGURATION FILE
+# =============================================================================
 
-# Path to your oh-my-zsh installation.
+# Path to Oh My Zsh installation
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Theme configuration
 ZSH_THEME="robbyrussell"
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
+# Plugins to load
 # Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git docker docker-compose)
 
+# Oh My Zsh settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#00ccff,bg=grey,bold"
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Initialize Oh My Zsh
+source $ZSH/oh-my-zsh.sh
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zsh_config="code ~/.zshrc"
-alias notebook_edit="uv run marimo edit"
+# ---------------------
+# PATH CONFIGURATION
+# ---------------------
+# Ensure /usr/local/bin is in PATH
+PATH="/usr/local/bin:$PATH"
 
 # user bin
 export PATH="$HOME/bin:$PATH"
 
-# uv
-export PATH="/Users/filippomameli/.local/bin:$PATH"
+# ---------------------
+# ZSH EXTENSIONS
+# ---------------------
+# Zsh autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-source $ZSH/oh-my-zsh.sh
+# Zsh syntax highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Zoxide navigation
 eval "$(zoxide init zsh)"
+
+# Atuin shell history
+eval "$(atuin init zsh)"
+
+# ---------------------
+# PYTHON/UV CONFIGURATION
+# ---------------------
+# Source uv environment
+source $HOME/.local/bin/env
+
+# ---------------------
+# ENVIRONMENT VARIABLES
+# ---------------------
+# Current folder variable
+export CURRENT_FOLDER=$(basename "$PWD")
+
+# VSCode suggestion
+export VSCODE_SUGGEST=1
+
+export EDITOR="code --wait"
+
+# ---------------------
+# ALIASES
+# ---------------------
+
+# Shell reload aliases
+alias reload_shell="source $HOME/.zshrc"
+
+# Configuration file aliases
+alias zsh_config="code ~/.zshrc"
+alias aws_config="code ~/.aws/credentials"
+
+# Development aliases
+alias notebook_edit="uv run marimo edit"
+
+# Activate python env
+alias activate_venv="source .venv/bin/activate"
+
+# ---------------------
+# CUSTOM FUNCTIONS
+# ---------------------
+# Terraform force unlock function
+tf_force_unlock() {
+  echo "Force unlocking Terraform state with ID: $1"
+  terraform force-unlock -force "$1"
+}
+
+# Git last commits function
+git_last_commits() {
+  local n=${1:-5}
+  echo "Last $n commit:"
+  git log -n "$n" --pretty=format:"%h %ad %s" --date=short
+}
+
+# Git configuration functions
+git_config_work() {
+  echo "Setting Git configuration for work..."
+  git config user.name "filippo-mameli"
+  git config user.email "filippo.mameli@agilelab.it"
+  echo "✅ Work Git config set:"
+  echo "   Name:  filippo-mameli"
+  echo "   Email: filippo.mameli@agilelab.it"
+}
+
+git_config_personal() {
+  echo "Setting Git configuration for personal projects..."
+  git config user.name "mameli"
+  git config user.email "mameli93@gmail.com"
+  echo "✅ Personal Git config set:"
+  echo "   Name:  mameli"
+  echo "   Email: mameli93@gmail.com"
+}

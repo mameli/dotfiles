@@ -4,10 +4,13 @@ brew update
 brew upgrade
 
 brew install git
+brew install neovim
 brew install python
 brew install uv
 brew install grep
 brew install openssh
+brew install opencode
+brew install atuin
 brew install zoxide
 brew install eza
 brew install ghostty
