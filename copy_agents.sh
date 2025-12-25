@@ -11,11 +11,11 @@ mkdir -p "$DEST_DIR"
 for file in "$SOURCE_DIR"/*; do
     if [[ -f "$file" ]]; then
         basename=$(basename "$file")
-        if [[ ! -e "$DEST_DIR/$basename" ]]; then
+        if [[ ! -e "$DEST_DIR/$basename" ]] || ! cmp -s "$file" "$DEST_DIR/$basename"; then
             cp "$file" "$DEST_DIR/"
             echo "Copied $basename to $DEST_DIR"
         else
-            echo "$basename already exists, skipping"
+            echo "$basename already exists with same content, skipping"
         fi
     fi
 done
