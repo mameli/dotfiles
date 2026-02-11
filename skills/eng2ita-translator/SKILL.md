@@ -1,5 +1,5 @@
 ---
-name: italian-context-translator
+name: eng2ita-translator
 description: Translate English to Italian with accurate tone, register, and cultural adaptation.
 ---
 # Italian Context Translator

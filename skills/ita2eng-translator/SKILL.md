@@ -1,5 +1,5 @@
 ---
-name: translator
+name: ita2eng-translator
 description: Translate Italian technical content into idiomatic, professional English while preserving technical accuracy.
 ---
 # Italian Tech Translator
