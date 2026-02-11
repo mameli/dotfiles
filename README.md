@@ -29,7 +29,7 @@ A collection of dotfiles and configuration scripts for macOS, focused on zsh, vi
    ```
    Notes:
    - Codex skills live under `~/.codex/skills` (or `.codex/skills` in a repo).
-   - OpenCode skills live under `~/.config/opencode/skill` (or `.opencode/skill` in a repo).
+   - OpenCode skills live under `~/.config/opencode/skills` (or `.opencode/skills` in a repo).
    - Claude Code skills live under `~/.claude/skills` (or `.claude/skills` in a repo).
    - The script accepts either the root folder (e.g. `~/.codex`) or the final skills path.
 

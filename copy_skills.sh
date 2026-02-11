@@ -6,7 +6,7 @@
 #   ./copy_skills.sh ~/.codex
 #   ./copy_skills.sh ~/.codex/skills
 #   ./copy_skills.sh ~/.config/opencode
-#   ./copy_skills.sh ~/.config/opencode/skill
+#   ./copy_skills.sh ~/.config/opencode/skills
 #   ./copy_skills.sh ~/.claude
 #   ./copy_skills.sh ~/.claude/skills
 
@@ -32,6 +32,10 @@ normalize_dest() {
     return
   fi
   case "$input" in
+    */.opencode/skill|*/.config/opencode/skill)
+      # Accept historical OpenCode path and normalize to /skills.
+      echo "${input%/skill}/skills"
+      ;;
     */skills|*/skill)
       echo "$input"
       ;;
@@ -39,7 +43,7 @@ normalize_dest() {
       echo "$input/skills"
       ;;
     */.opencode|*/.config/opencode)
-      echo "$input/skill"
+      echo "$input/skills"
       ;;
     */.claude)
       echo "$input/skills"
