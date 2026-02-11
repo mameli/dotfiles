@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sync Skills"
+  short_description: "Sync local skills to Codex, OpenCode, or Claude"
+  default_prompt: "Sync the workspace skills folder into codex, opencode, or claude based on the requested target."
