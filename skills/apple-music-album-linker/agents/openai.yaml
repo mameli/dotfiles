@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apple Music Album Linker"
+  short_description: "Find Apple Music album links from artist and album names."
+  default_prompt: "Use $apple-music-album-linker to find the Apple Music album link for the given artist and album name."
