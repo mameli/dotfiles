@@ -8,6 +8,7 @@ brew install git
 brew install neovim
 brew install python
 brew install uv
+brew install oven-sh/bun/bun
 brew install grep
 brew install openssh
 brew install opencode
