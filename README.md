@@ -10,19 +10,29 @@ A collection of dotfiles and configuration scripts for macOS, focused on zsh, vi
    cd dotfiles
    ```
 
-2. Run the Homebrew installation script to install required tools:
+2. Install Homebrew if it is not already available:
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+
+3. Run the Homebrew installation script to install required tools, including zsh and the Cascadia Code font used by the Ghostty config:
    ```bash
    ./brew.sh
    ```
 
-3. Copy configuration files (e.g., zshrc) to your home directory or source them as needed.
+4. Install Oh My Zsh:
+   ```bash
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   ```
 
-4. Copy OpenCode agents to the config directory:
+5. Copy configuration files (e.g., zshrc) to your home directory or source them as needed.
+
+6. Copy OpenCode agents to the config directory:
    ```bash
    ./copy_agents.sh
    ```
 
-5. Copy Codex/OpenCode/Claude Code skills to your desired config directory:
+7. Copy Codex/OpenCode/Claude Code skills to your desired config directory:
    ```bash
    ./copy_skills.sh ~/.codex/skills
    ./copy_skills.sh ~/.config/opencode/skills
@@ -33,12 +43,17 @@ A collection of dotfiles and configuration scripts for macOS, focused on zsh, vi
    - Claude Code skills live under `~/.claude/skills` (or `.claude/skills` in a repo).
    - The script accepts either the root folder (e.g. `~/.codex`) or the final skills path.
 
-6. For Ghostty terminal configuration, copy `config_ghostty.txt` to your Ghostty config location.
+8. For Ghostty terminal configuration, copy `config_ghostty.txt` to your Ghostty config location.
+
+9. List the available Ghostty themes with:
+    ```bash
+    ghostty +list-themes
+    ```
 
 ## Configurations Included
 
 - **zshrc**: Zsh configuration with Oh My Zsh, plugins (git, docker, docker-compose), autosuggestions, syntax highlighting, Zoxide, Atuin, and custom aliases/functions.
-- **brew.sh**: Script to install essential Homebrew packages like Git, Python, OpenCode, Atuin, Zoxide, etc.
+- **brew.sh**: Script to install essential Homebrew packages and casks like Git, Python, zsh, Ghostty, Cascadia Code, Bitwarden, Maccy, and more.
 - **copy_agents.sh**: Script to copy OpenCode custom agents to the config directory.
 - **copy_skills.sh**: Script to copy Codex/OpenCode/Claude Code skills to a chosen destination.
 - **config_ghostty.txt**: Configuration for Ghostty terminal emulator.

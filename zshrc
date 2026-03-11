@@ -43,12 +43,6 @@ eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 
 # ---------------------
-# PYTHON/UV CONFIGURATION
-# ---------------------
-# Source uv environment
-source $HOME/.local/bin/env
-
-# ---------------------
 # ENVIRONMENT VARIABLES
 # ---------------------
 # Current folder variable
