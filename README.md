@@ -53,7 +53,7 @@ A collection of dotfiles and configuration scripts for macOS, focused on zsh, vi
 ## Configurations Included
 
 - **zshrc**: Zsh configuration with Oh My Zsh, plugins (git, docker, docker-compose), autosuggestions, syntax highlighting, Zoxide, Atuin, and custom aliases/functions.
-- **brew.sh**: Script to install essential Homebrew packages and casks like Git, Python, zsh, Ghostty, Cascadia Code, Bitwarden, Maccy, and more.
+- **brew.sh**: Script to install essential Homebrew packages and casks like Git, Python, Bun, zsh, Ghostty, Cascadia Code, Bitwarden, Maccy, and more.
 - **copy_agents.sh**: Script to copy OpenCode custom agents to the config directory.
 - **copy_skills.sh**: Script to copy Codex/OpenCode/Claude Code skills to a chosen destination.
 - **config_ghostty.txt**: Configuration for Ghostty terminal emulator.
