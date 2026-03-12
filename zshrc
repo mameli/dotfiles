@@ -87,7 +87,7 @@ git_last_commits() {
 }
 
 # Git configuration functions
-git_config_work() {
+work_git_config() {
   echo "Setting Git configuration for work..."
   git config user.name "filippo-mameli"
   git config user.email "filippo.mameli@agilelab.it"
@@ -96,7 +96,7 @@ git_config_work() {
   echo "   Email: filippo.mameli@agilelab.it"
 }
 
-git_config_personal() {
+personal_git_config() {
   echo "Setting Git configuration for personal projects..."
   git config user.name "mameli"
   git config user.email "mameli93@gmail.com"
