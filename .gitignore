@@ -1,0 +1,15 @@
+.DS_Store
+
+# Skill-local runtime caches and virtualenvs
+**/.runtime/
+**/.venv/
+**/venv/
+
+# Generated logs
+**/last-error.log
+
+# Browser auth/session state that may contain tokens
+**/playwright/.auth/
+**/storage-state*.json
+**/auth-state*.json
+**/*.session.json

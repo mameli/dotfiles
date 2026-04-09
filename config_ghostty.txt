@@ -1,3 +1,16 @@
 font-family = Cascadia Code Regular Regular
 font-size = 20
 theme = One Half Dark
+copy-on-select = clipboard
+shell-integration-features = no-cursor,sudo,no-title
+cursor-style = block
+adjust-cell-height = 35%
+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+window-padding-balance = true 
+window-save-state = always
+macos-titlebar-style=transparent
+window-colorspace = "display-p3"
+keybind = shift+enter=text:\x1b\r

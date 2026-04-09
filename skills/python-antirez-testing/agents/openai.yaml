@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python Antirez Testing"
+  short_description: "Design robust Python tests around behavior, invariants, and edge cases."
+  default_prompt: "Use $python-antirez-testing to inspect this Python repo, identify the highest-risk behavior-level test surfaces, define invariants and edge cases, and then generate the most valuable pytest tests."
