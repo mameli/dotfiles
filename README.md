@@ -101,21 +101,15 @@ Gitleaks must pass for proposed contents and outgoing commits, but does not prov
 absence of personal information or audit all pre-existing repository history.
 Downloaded skill scripts are not executed as part of synchronization.
 
-Scheduling uses one Hermes script-only job, `Custom skills sync`, with an hourly
-`0 * * * *` check and a trusted local gate (`scripts/skill_sync_schedule.py`).
-The gate runs synchronization **only Sunday during 21:00–21:59 Europe/Rome**, once
-successfully per Sunday. Non-due/no-change runs are silent. This explicitly avoids
-an installed Hermes/croniter defect: the weekly expression moved the autumn run
-to 22:00 in a real scheduler calculation. Hourly scheduling and the gate were
-verified across both DST changes. The gate's separate private `schedule.json`
-sets `python`, `engine`, `sync_config` and `state_dir`; see
-`skill-sync-schedule.example.json`.
-
-The job remains paused until live apply/no-change verification succeeds. If the
-PC or scheduler misses the whole Sunday window, **this configuration waits until
-next Sunday**; native catch-up ticks outside the window do not run sync. There is
-no OS wake-up job. Run sync manually if an update cannot wait. See the operations
-reference for setup, notifications, conflicts, deletion and restoration.
+Scheduling uses one Hermes script-only job, `Custom skills sync`, expression
+`0 21 * * 0` (Sunday 21:00), running trusted `scripts/skill_sync_weekly.py`.
+The wrapper reads separate private `schedule.json` settings (`python`, `engine`,
+`sync_config`, `state_dir`); see `skill-sync.example.json` for the sync mapping
+format. Non-change runs are silent; updates and intervention-required errors
+are delivered. If the PC or scheduler misses the Sunday run, the next automatic
+sync is the following Sunday; run sync manually for immediate updates. See the
+operations reference for setup, notifications, conflicts, deletion and
+restoration.
 
 ```sh
 python3 -m unittest discover -s tests -p 'test_skill_sync.py' -v

@@ -1,6 +1,0 @@
-{
-  "python": "/absolute/path/to/python3",
-  "engine": "/absolute/private/path/to/agent-skills/skill_sync.py",
-  "sync_config": "/absolute/private/path/to/agent-skills/sync.json",
-  "state_dir": "/absolute/private/path/to/agent-skills/schedule-state"
-}

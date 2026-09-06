@@ -73,16 +73,16 @@ dotfiles are neither staged nor overwritten.
 
 ## Scheduling and notifications
 
-Use one Hermes native job named `Custom skills sync`, expression `0 * * * *`,
-`no_agent: true`, running a trusted local copy of `scripts/skill_sync_schedule.py`.
-Its private settings default to `agent-skills/schedule.json` under XDG_CONFIG_HOME.
-See `skill-sync-schedule.example.json`. The gate checks Europe/Rome explicitly,
-executes only Sunday 21:00–21:59, and records at most one successful run per Sunday.
-Hourly checks outside that window exit silently without running the sync engine.
-This workaround is deliberate: installed native weekly scheduling failed an
-autumn DST test (22:00 instead of 21:00); hourly calculations plus the gate passed
-both transitions. Hermes currently uses profile/environment timezone rather
-than a per-job timezone field. Check other jobs before changing profile settings.
+Use one Hermes native job named `Custom skills sync`, expression `0 21 * * 0`,
+`no_agent: true`, running a trusted local copy of `scripts/skill_sync_weekly.py`.
+Its private settings default to `agent-skills/schedule.json` under XDG_CONFIG_HOME
+(`python`, `engine`, `sync_config`, `state_dir`). The wrapper runs the engine
+with `--apply` once per tick: empty stdout stays silent, updates and
+intervention-required errors are delivered. Note: installed native weekly
+scheduling failed an autumn DST check in testing (22:00 instead of 21:00); the
+run still happens weekly on Sunday, just possibly an hour off after a DST change.
+Hermes currently uses profile/environment timezone rather than a per-job timezone
+field. Check other jobs before changing profile settings.
 
 The wrapper supplies explicit executable/config paths without interactive shell
 initialization. Empty stdout means no delivery; updates and intervention-required
@@ -90,12 +90,10 @@ errors produce a concise notification. Native run history lives under the active
 Hermes profile's `cron/output/<job-id>/`. Private synchronization data lives
 under `cache_dir` from `sync.json`.
 
-The PC must be awake and a Hermes scheduler must be running to execute at 21:00.
-Hermes can collapse missed recurring ticks into one catch-up; the gate still
-rejects times outside Sunday 21:00–21:59. If that whole window is missed, the
-next automatic sync is next Sunday. Use the manual command for immediate updates.
-No OS wake job or off-window retry is installed. Recheck native scheduling after
-Hermes upgrades before removing the hourly workaround.
+The PC must be awake and a Hermes scheduler must be running for the Sunday run.
+If that run is missed, the next automatic sync is the following Sunday. Use the
+manual command for immediate updates. No OS wake job is installed. Recheck native
+scheduling after Hermes upgrades.
 
 ## Limits
 
