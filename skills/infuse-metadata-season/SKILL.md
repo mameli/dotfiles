@@ -1,6 +1,6 @@
 ---
 name: infuse-metadata-season
-description: Rename TV or anime season folders and episode files for Infuse metadata matching.
+description: "Rename TV/anime seasons and episodes for Infuse matching."
 ---
 
 # Infuse season naming

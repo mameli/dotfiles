@@ -1,22 +1,32 @@
 ---
 name: playwright-cli
-description: Automate browser interactions with Playwright CLI for web testing, forms, screenshots, or extraction.
+description: "Use when explicitly asked to automate via Playwright CLI."
+version: 1.1.0
 ---
 
 # Playwright CLI
 
-Use this workflow when CLI browser automation fits the task and the user's chosen browser environment. Run `playwright-cli` through the shell, or `npx playwright-cli` if the binary is unavailable.
+Use the installed `playwright-cli`; if unavailable, the package is `@playwright/cli` (`npx @playwright/cli`). Consult `playwright-cli --help <command>` for supported options rather than assuming Playwright library syntax.
 
-Open the target with `playwright-cli open "URL"`. Inspect the returned snapshot and use its element references for `click`, `fill` and other actions. Refresh the snapshot when references become stale. Verify the requested result and close sessions created for this task when finished.
+List existing sessions and choose a unique task-owned name. Use it throughout; obtain current element references with `snapshot` after navigation or page changes. For example, after choosing an unused session name:
 
-Read only the reference needed:
+```bash
+playwright-cli -s=task-name open https://example.com
+playwright-cli -s=task-name snapshot
+# Substitute the actual element reference from that snapshot:
+playwright-cli -s=task-name click e3
+playwright-cli -s=task-name screenshot --filename=page.png
+playwright-cli -s=task-name close
+```
 
-- [Command syntax and examples](references/commands.md) for navigation, input, screenshots and tabs.
-- [Sessions](references/session-management.md) for persistent profiles or multiple sessions.
-- [Storage state](references/storage-state.md) for cookies and local storage.
-- [Request mocking](references/request-mocking.md) for network interception.
-- [Running code](references/running-code.md) for Playwright code execution.
-- [Test generation](references/test-generation.md) when asked to generate tests.
-- [Tracing](references/tracing.md) or [video](references/video-recording.md) for those diagnostic artifacts.
+Close only sessions created for the task. An existing CDP-attached browser is not task-owned: preserve it, its cookies, persistent profiles and unrelated tabs. Do not use global cleanup or delete profiles as routine recovery. Maoty uses its own direct-CDP helper, not this CLI.
 
-Keep actions within the requested task and existing authorization. Scope cleanup to the task's session; avoid commands that close unrelated browsers or delete unrelated profiles.
+Load the relevant reference:
+
+- [Session ownership and persistence](references/session-management.md)
+- [Storage state and cookies](references/storage-state.md)
+- [Request mocking](references/request-mocking.md)
+- [Custom Playwright code](references/running-code.md)
+- [Test generation](references/test-generation.md)
+- [Tracing](references/tracing.md)
+- [Video recording](references/video-recording.md)

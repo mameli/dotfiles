@@ -4,7 +4,7 @@ Run multiple isolated browser sessions concurrently with state persistence.
 
 ## Named Browser Sessions
 
-Use `-s` flag to isolate browser contexts:
+Use `-s` with a unique task-owned name to isolate browser contexts. Run `playwright-cli list` first; do not reuse an existing session unless the user requests it. Names below are examples, not ownership evidence:
 
 ```bash
 # Browser 1: Authentication flow
@@ -34,19 +34,8 @@ Each browser session has independent:
 # List all browser sessions
 playwright-cli list
 
-# Stop a browser session (close the browser)
-playwright-cli close                # stop the default browser
-playwright-cli -s=mysession close   # stop a named browser
-
-# Stop all browser sessions
-playwright-cli close-all
-
-# Forcefully kill all daemon processes (for stale/zombie processes)
-playwright-cli kill-all
-
-# Delete browser session user data (profile directory)
-playwright-cli delete-data                # delete default browser data
-playwright-cli -s=mysession delete-data   # delete named browser data
+# Close only a session created for this task
+playwright-cli -s=mysession close
 ```
 
 ## Environment Variable
@@ -77,8 +66,10 @@ playwright-cli -s=site1 snapshot
 playwright-cli -s=site2 snapshot
 playwright-cli -s=site3 snapshot
 
-# Cleanup
-playwright-cli close-all
+# Cleanup only these task-created sessions
+playwright-cli -s=site1 close
+playwright-cli -s=site2 close
+playwright-cli -s=site3 close
 ```
 
 ### A/B Testing Sessions
@@ -113,7 +104,7 @@ When `-s` is omitted, commands use the default browser session:
 # These use the same default browser session
 playwright-cli open https://example.com
 playwright-cli snapshot
-playwright-cli close  # Stops default browser
+playwright-cli close  # Only if this task created the default browser
 ```
 
 ## Browser Session Configuration
@@ -147,23 +138,16 @@ playwright-cli -s=docs-scrape open https://docs.example.com
 playwright-cli -s=s1 open https://github.com
 ```
 
-### 2. Always Clean Up
+### 2. Clean Up Only Task-Owned Sessions
 
 ```bash
-# Stop browsers when done
+# Only if this task created these sessions
 playwright-cli -s=auth close
 playwright-cli -s=scrape close
-
-# Or stop all at once
-playwright-cli close-all
-
-# If browsers become unresponsive or zombie processes remain
-playwright-cli kill-all
 ```
 
-### 3. Delete Stale Browser Data
+Do not use `close-all` or `kill-all` for routine cleanup or recovery. If a task-owned session is unresponsive, identify its exact process and ownership before targeted termination; otherwise ask the user.
 
-```bash
-# Remove old browser data to free disk space
-playwright-cli -s=oldsession delete-data
-```
+### 3. Preserve Profiles and Attached Browsers
+
+Never delete profiles merely because they appear stale. Preserve persistent profiles, cookies, and user data, including profiles used by CDP-attached browsers. Attaching to an existing browser does not make it task-owned: do not close or kill it. Remove only disposable task-created data whose deletion was authorized; ask before deleting any persistent profile.
