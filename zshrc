@@ -104,3 +104,8 @@ personal_git_config() {
   echo "   Name:  mameli"
   echo "   Email: mameli93@gmail.com"
 }
+
+# Agent skill settings: local paths and credentials stay outside the repository.
+if [[ -r "${XDG_CONFIG_HOME:-$HOME/.config}/agent-skills/env.zsh" ]]; then
+  source "${XDG_CONFIG_HOME:-$HOME/.config}/agent-skills/env.zsh"
+fi

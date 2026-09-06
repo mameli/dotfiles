@@ -13,3 +13,23 @@
 **/storage-state*.json
 **/auth-state*.json
 **/*.session.json
+
+# Private skill configuration and generated state
+.env
+.env.*
+!.env.example
+agent-skills.env.zsh
+**/env.local.zsh
+**/.archive/
+**/.curator_backups/
+**/.hub/
+**/.usage.json*
+**/.bundled_manifest
+**/__pycache__/
+**/*.pyc
+
+# Private configuration at its canonical location, if accidentally copied here
+**/agent-skills/env.zsh
+**/.curator_ledger.jsonl
+**/.curator_state
+**/.offline-*/
