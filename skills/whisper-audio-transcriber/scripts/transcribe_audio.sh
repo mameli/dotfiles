@@ -15,12 +15,14 @@ Behavior:
 
 Defaults:
   language: it
-  model: /Users/mameli/Ai_models/ggml-medium.bin, otherwise first /Users/mameli/Ai_models/ggml-*.bin
+  model: --model, then WHISPER_MODEL_PATH, then ggml-medium.bin or another ggml-*.bin in WHISPER_MODEL_DIR
+  model directory default: $HOME/.local/share/whisper/models
 EOF
 }
 
 language="it"
-model=""
+model="${WHISPER_MODEL_PATH:-}"
+model_dir="${WHISPER_MODEL_DIR:-$HOME/.local/share/whisper/models}"
 audio=""
 
 while [[ $# -gt 0 ]]; do
@@ -32,6 +34,7 @@ while [[ $# -gt 0 ]]; do
       ;;
     --model|-m)
       [[ $# -ge 2 ]] || { echo "Missing value for $1" >&2; exit 1; }
+      [[ -n "$2" ]] || { echo "--model requires a nonempty file path" >&2; exit 1; }
       model="$2"
       shift 2
       ;;
@@ -74,10 +77,10 @@ whisper_bin="$(command -v whisper-cli || true)"
 [[ -n "$whisper_bin" ]] || { echo "whisper-cli not found in PATH" >&2; exit 1; }
 
 if [[ -z "$model" ]]; then
-  if [[ -f /Users/mameli/Ai_models/ggml-medium.bin ]]; then
-    model="/Users/mameli/Ai_models/ggml-medium.bin"
+  if [[ -f "$model_dir/ggml-medium.bin" ]]; then
+    model="$model_dir/ggml-medium.bin"
   else
-    for candidate in /Users/mameli/Ai_models/ggml-*.bin; do
+    for candidate in "$model_dir"/ggml-*.bin(N); do
       if [[ -f "$candidate" ]]; then
         model="$candidate"
         break

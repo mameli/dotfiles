@@ -1,0 +1,283 @@
+{
+  "entries": [
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/apple/apple-automation",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/autonomous-ai-agents/computer-use",
+      "origin": "Substantive local typed-page escalation and browser contract additions versus bundled baseline."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/autonomous-ai-agents/external-coding-agents",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/autonomous-ai-agents/hermes-agent",
+      "origin": "Local skill-maintenance routing and reference absent from bundled baseline."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/creative/ascii-media",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/creative/baoyu-visual-content",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/creative/creative-generative-production",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/creative/creative-visual-artifacts",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/creative/writing-and-copy",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/devops/arr-automation",
+      "origin": "Local Radarr/Sonarr verified-write workflow with portable connection defaults."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/devops/kanban-workflows",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/devops/maoty-maintenance",
+      "origin": "Personal project maintenance workflow; runtime connection values previously externalized."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/infuse-metadata-season",
+      "origin": "Local concise Infuse naming workflow; divergent cross-agent variants must remain separate."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/media/ai-music-and-audio",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/media/letterboxd-watchlist",
+      "origin": "Local account-aware watchlist workflow; avoids fixed user identity."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/media/video-platform-content",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/media/vtt-transcript-reader",
+      "origin": "Locally installed authored transcript-to-study workflow, not present in shipped baselines."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/mlops/ml-model-operations",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/productivity/document-processing",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/productivity/local-knowledge-workbench",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/productivity/platform-cli-integrations",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/productivity/productivity-integrations",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/productivity/travel-itinerary-management",
+      "origin": "Locally authored living-itinerary workflow, not present in shipped baselines."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/research/research-intelligence",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/software-development/github",
+      "origin": "Local auth/safety discipline and local-repository-inspection workflow versus bundled baseline."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/software-development/playwright-cli",
+      "origin": "Explicit opt-in, task-owned sessions and CLI-specific local rewrite; preserve separate from dotfiles/Codex variant."
+    },
+    {
+      "agents": [
+        "hermes"
+      ],
+      "catalog": "hermes-skills/software-development/software-delivery-workflows",
+      "origin": "Local class-level consolidation/umbrella with retained references and assets; preserve existing Hermes category path, do not flatten into other agents."
+    },
+    {
+      "agents": [
+        "codex",
+        "opencode"
+      ],
+      "catalog": "skills/apple-music-album-linker",
+      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
+    },
+    {
+      "agents": [
+        "codex",
+        "opencode"
+      ],
+      "catalog": "skills/editor",
+      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
+    },
+    {
+      "agents": [
+        "codex",
+        "opencode"
+      ],
+      "catalog": "skills/file-to-markdown",
+      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
+    },
+    {
+      "agents": [
+        "codex",
+        "opencode"
+      ],
+      "catalog": "skills/infuse-metadata-season",
+      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
+    },
+    {
+      "agents": [
+        "codex",
+        "opencode"
+      ],
+      "catalog": "skills/italian-english-translator",
+      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
+    },
+    {
+      "agents": [
+        "codex",
+        "opencode"
+      ],
+      "catalog": "skills/markdown-to-pdf-export",
+      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
+    },
+    {
+      "agents": [
+        "codex",
+        "opencode"
+      ],
+      "catalog": "skills/playwright-cli",
+      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
+    },
+    {
+      "agents": [
+        "codex",
+        "opencode",
+        "hermes"
+      ],
+      "catalog": "skills/sync-skills",
+      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
+    },
+    {
+      "agents": [
+        "codex",
+        "opencode"
+      ],
+      "catalog": "skills/whisper-audio-transcriber",
+      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
+    },
+    {
+      "agents": [
+        "codex",
+        "opencode"
+      ],
+      "catalog": "skills/yagni",
+      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
+    },
+    {
+      "agents": [
+        "codex",
+        "opencode"
+      ],
+      "catalog": "skills/youtube-to-obsidian-raw",
+      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
+    }
+  ],
+  "version": 1
+}

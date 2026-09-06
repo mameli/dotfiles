@@ -1,48 +1,42 @@
 ---
 name: sync-skills
-description: Sync skill folders from the current workspace `skills/` directory into Codex, OpenCode, or Claude skill folders. Use when a user asks to sync/copy/update skills into codex, opencode, or claude.
+description: "Use when syncing custom skills across PCs and agents."
 ---
 
-# Sync Skills
+# Sync skills
 
-Use this skill to copy skills from the current repository into the requested target platform.
+Manage the selected custom skills for Hermes, Codex and OpenCode with the
+trusted local sync script, not a blind copy or an LLM rewrite.
 
-## Workflow
+## Run
 
-1. Confirm the current workspace contains a `skills/` folder.
-2. Detect the target from the prompt and run:
+Private settings: `${XDG_CONFIG_HOME:-$HOME/.config}/agent-skills/sync.json`.
+Trusted script: `${XDG_DATA_HOME:-$HOME/.local/share}/agent-skills/skill_sync.py`.
 
-```bash
-# If target is codex
-bash ./copy_skills.sh ~/.codex
-
-# If target is opencode
-bash ./copy_skills.sh ~/.config/opencode
-
-# If target is claude
-bash ./copy_skills.sh ~/.claude
+```sh
+python3 "${XDG_DATA_HOME:-$HOME/.local/share}/agent-skills/skill_sync.py" \
+  --config "${XDG_CONFIG_HOME:-$HOME/.config}/agent-skills/sync.json" --dry-run
+# After inspecting the dry-run, use --apply instead of --dry-run.
 ```
 
-3. Verify the sync completed:
+The JSON lists the repository, private cache directory and explicit catalog-to-
+installation mappings. Each PC chooses its own targets. Keep populated settings,
+state, conflict snapshots and backups outside Git. Reuse the existing private
+`agent-skills/env.zsh` for skill runtime variables; the sync engine does not source it.
 
-```bash
-ls -la ~/.codex/skills
-ls -la ~/.config/opencode/skills
-ls -la ~/.claude/skills
-```
+## Safety
 
-Only verify the directory for the selected target.
+- Do not run `copy_skills.sh` against a managed installation: it is one-way and
+  can overwrite local changes without reconciliation.
+- Never resolve a conflict by deleting state or choosing the newest timestamp.
+- A dirty/manual outgoing change in a managed dotfiles path blocks the run;
+  inspect and commit/publish or deliberately move that work before retrying.
+- Never remove a local skill to request a shared deletion. Remove a target from
+  private selection to stop managing it. Catalog removals require explicit review.
+- Do not execute remote scripts during synchronization. To update the trusted
+  engine, review its diff, run isolated tests, then deliberately replace the local copy.
+- Scanner failures block publication. Report paths/categories, never values.
 
-## Notes
-
-- `copy_skills.sh` normalizes destinations:
-  - `~/.codex` -> `~/.codex/skills`
-  - `~/.config/opencode` or `~/.opencode` -> `.../skills`
-  - `~/.claude` -> `~/.claude/skills`
-- The copy uses `rsync --checksum`, so unchanged files are not recopied unnecessarily.
-- If no target is provided, ask the user whether to sync to codex, opencode, or claude.
-- If the script is run outside the repository root, run it with the full path, for example:
-
-```bash
-bash /path/to/dotfiles/copy_skills.sh ~/.codex
-```
+For setup, conflicts, recovery and the weekly Hermes script-only job, read
+`references/operations.md`. Use native Hermes cron tooling to inspect/update the
+existing job by name; never create a duplicate or edit its storage directly.

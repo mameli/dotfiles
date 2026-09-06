@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "remote": "git@github.com:YOUR_ACCOUNT/dotfiles.git",
+  "branch": "master",
+  "workspace": "/absolute/path/to/dotfiles",
+  "cache_dir": "/absolute/private/path/to/agent-skills/sync-state",
+  "scanner": "/absolute/path/to/gitleaks",
+  "mappings": [
+    {
+      "catalog": "skills/sync-skills",
+      "targets": [
+        "/absolute/path/to/.codex/skills/sync-skills",
+        "/absolute/path/to/.config/opencode/skills/sync-skills",
+        "/absolute/path/to/.hermes/skills/sync-skills"
+      ]
+    }
+  ]
+}
