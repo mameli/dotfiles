@@ -194,14 +194,6 @@
         "codex",
         "opencode"
       ],
-      "catalog": "skills/apple-music-album-linker",
-      "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
-    },
-    {
-      "agents": [
-        "codex",
-        "opencode"
-      ],
       "catalog": "skills/editor",
       "origin": "Current reviewed Codex consolidation; older dotfiles entries remain unselected."
     },
