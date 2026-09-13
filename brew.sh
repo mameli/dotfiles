@@ -1,31 +1,60 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
 
 brew update
 brew upgrade
 
-brew install git
-brew install neovim
-brew install python
-brew install uv
-brew install oven-sh/bun/bun
-brew install grep
-brew install openssh
-brew install opencode
-brew install atuin
-brew install zoxide
-brew install eza
-brew install ghostty
-brew install dbeaver-community
-brew install rectangle
-brew install zsh
-brew install zsh-autosuggestions
-brew install zsh-syntax-highlighting
-brew install visual-studio-code
-brew install --cask maccy
-brew install --cask bitwarden
-brew install --cask font-cascadia-code
+formulae=(
+  agent-browser
+  atuin
+  eza
+  ffmpeg
+  gh
+  git
+  gitleaks
+  grep
+  herdr
+  himalaya
+  iperf3
+  llama.cpp
+  mole
+  neovim
+  opencode
+  openssh
+  oven-sh/bun/bun
+  python@3.14
+  uv
+  yt-dlp
+  zoxide
+  zsh
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
-brew tap homebrew/cask-fonts
+casks=(
+  agentsview
+  betterdisplay
+  bitwarden
+  blip
+  chatgpt
+  codex
+  codexbar
+  dbeaver-community
+  ghostty
+  google-chrome
+  hermes-desktop
+  obsidian
+  paseo
+  telegram
+  transmission
+  unsloth
+  visual-studio-code
+  vorssaint
+  zen
+)
+
+brew install "${formulae[@]}"
+brew install --cask "${casks[@]}"
 
 brew cleanup

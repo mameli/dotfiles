@@ -6,7 +6,7 @@ A collection of dotfiles and configuration scripts for macOS, centered around zs
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/dotfiles.git
+   git clone https://github.com/mameli/dotfiles.git
    cd dotfiles
    ```
 
@@ -15,7 +15,7 @@ A collection of dotfiles and configuration scripts for macOS, centered around zs
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
-3. Run the Homebrew installation script to install required tools, including zsh and the Cascadia Code font used by the Ghostty config:
+3. Run the Homebrew installation script to install the command-line tools and applications used on this Mac:
    ```bash
    ./brew.sh
    ```
@@ -37,7 +37,7 @@ A collection of dotfiles and configuration scripts for macOS, centered around zs
 ## Configurations Included
 
 - **zshrc**: Zsh configuration with Oh My Zsh, plugins (git, docker, docker-compose), autosuggestions, syntax highlighting, Zoxide, Atuin, and custom aliases/functions.
-- **brew.sh**: Script to install essential Homebrew packages and casks like Git, Python, Bun, zsh, Ghostty, Cascadia Code, Bitwarden, Maccy, and more.
+- **brew.sh**: Script to install the Homebrew formulae and casks currently used on this Mac.
 - **config_ghostty.txt**: Configuration for Ghostty terminal emulator.
 
 ## Requirements
