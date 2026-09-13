@@ -1,6 +1,6 @@
 # dotfiles
 
-A collection of dotfiles and configuration scripts for macOS, focused on zsh, vim, and developer tools.
+A collection of dotfiles and configuration scripts for macOS, centered around zsh, vim, and developer tools.
 
 ## Installation
 
@@ -29,7 +29,7 @@ A collection of dotfiles and configuration scripts for macOS, focused on zsh, vi
 
 6. For Ghostty terminal configuration, copy `config_ghostty.txt` to your Ghostty config location.
 
-8. List the available Ghostty themes with:
+7. List the available Ghostty themes with:
     ```bash
     ghostty +list-themes
     ```
